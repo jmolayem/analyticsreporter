@@ -242,6 +242,20 @@
       }
     },
     {
+      "name": "top-countries-realtime",
+      "frequency": "realtime",
+      "realtime": true,
+      "query": {
+        "dimensions": ["rt:country"],
+        "metrics": ["rt:activeUsers"],
+        "sort": "-rt:activeUsers"
+      },
+      "meta": {
+        "name": "Top Cities",
+        "description": "Top countries for active onsite users."
+      }
+    },
+    {
       "name": "top-cities-realtime",
       "frequency": "realtime",
       "realtime": true,
@@ -379,7 +393,40 @@
         "description": "Last 30 days' Traffic sources, measured by visits, for all sites."
       }
     },
-
+    {
+      "name": "top-countries-realtime",
+      "frequency": "realtime",
+      "realtime": true,
+      "query": {
+        "dimensions": ["rt:country"],
+        "metrics": ["rt:activeUsers"],
+        "sort": "-rt:activeUsers"
+      },
+      "meta": {
+        "name": "Top Cities",
+        "description": "Top countries for active onsite users."
+      }
+    },
+    {
+      "name": "top-downloads-yesterday",
+      "frequency": "daily",
+      "query": {
+        "dimensions": ["ga:pageTitle", "ga:eventLabel", "ga:pagePath"],
+        "metrics": ["ga:totalEvents"],
+        "filters": [
+          "ga:eventCategory=~ownload",
+          "ga:pagePath!~(usps.com).*\/(?i)(zip|doc).*"
+        ],
+        "start-date": "yesterday",
+        "end-date": "yesterday",
+        "sort": "-ga:totalEvents",
+        "max-results": "100"
+      },
+      "meta": {
+        "name": "Top Downloads Yesterday",
+        "description": "Top downloads yesterday"
+      }
+    },
     {
       "name": "top-exit-pages-30-days",
       "frequency": "daily",
