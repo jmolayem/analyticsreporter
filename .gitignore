@@ -12,3 +12,5 @@ todo.txt
 npm-debug.log
 *.swp
 run-reports.sh
+deploy/daily.sh
+deploy/realtime.sh
